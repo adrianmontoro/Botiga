@@ -137,23 +137,30 @@ return [
             //'label_color' => 'success',
         ],
 
-        'OPCIONS DE COMPTE',
-        [
-            'text' => 'Perfil',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Canviar contrassenya',
-            'url'  => 'admin/password',
-            'icon' => 'lock',
-        ],
 
         'PDF',
         [
             'text' => 'Descarrega el PDF',
             'url'  => 'admin/pdf',
             'icon' => 'file',
+            'submenu' => [
+                [
+                    'text' => 'Level One',
+                    'url'  => '#',
+                ],
+                  [
+                    'text'    => 'Level Two',
+                    'url'     => '#',
+                  ],
+                      [
+                      'text'    => 'Level Two',
+                      'url'     => '#',
+                        [
+                          'text'    => 'Level Two',
+                          'url'     => '#',
+                        ],
+                      ],
+              ],
         ],
         /*[
             'text'    => 'Multilevel',
