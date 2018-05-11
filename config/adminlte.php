@@ -131,7 +131,7 @@ return [
 
         [
             'text'        => 'Productes',
-            'url'         => '/categories',
+            'url'         => '/products',
             'icon'        => 'cubes',
             //'label'       => 4,
             //'label_color' => 'success',

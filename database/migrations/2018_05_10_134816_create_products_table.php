@@ -19,9 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('properties');
             $table->string('picture');
-            $table->integer('category_id')->unsigned();
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 

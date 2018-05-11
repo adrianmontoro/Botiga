@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Consola PlayStation4',
         'properties'  => '500GB Disc',
         'picture'  => asset('images/play4.jpg'),
-        'category_id' => '3',
+        //'category_id' => '3',
       ]);
 
       $product = Product::create([
@@ -25,7 +25,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Càmara professional Cannon',
         'properties'  => '142 megapíxels',
         'picture'  => asset('images/cannon.jpg'),
-        'category_id' => '2',
+        //'category_id' => '2',
       ]);
 
       $product = Product::create([
@@ -33,7 +33,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Portatil gaming Lenovo',
         'properties'  => 'Gràfica: GTX1080OC',
         'picture'  => asset('images/lenovo.jpg'),
-        'category_id' => '1',
+        //'category_id' => '1',
       ]);
     }
 }
