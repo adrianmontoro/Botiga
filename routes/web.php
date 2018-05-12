@@ -26,6 +26,7 @@ Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc');
 Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc');
 Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc');
 Route::resource('/feed', 'FeedController');
+Route::resource('/cart','CartController');
 
 //Admin
 Route::resource('users','AdminUserController');

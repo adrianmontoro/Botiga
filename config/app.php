@@ -149,7 +149,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         //Pdf
         Barryvdh\DomPDF\ServiceProvider::class,
-
+        //Card
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         //Admin-lte
         JeroenNoten\LaravelAdminLte\ServiceProvider::class,
         /*
@@ -216,6 +217,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];
