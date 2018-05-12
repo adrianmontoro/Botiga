@@ -19,6 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin','AdminlteController@index')->name('admin');
+Route::get('/pdf/asc','PdfController@users')->name('pdf_asc');
+Route::get('/pdf/desc','PdfController@users2')->name('pdf_desc');
+Route::get('/pdf/dni/asc','PdfController@users3')->name('pdf_dni_asc');
+Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc');
+Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc');
+Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc');
+Route::resource('/feed', 'FeedController');
+
+//Admin
 Route::resource('users','AdminUserController');
 Route::resource('categories','AdminCategoryController');
 Route::resource('products','AdminProductsController');
+
+//Shop
+Route::resource('product','ShopProductController');

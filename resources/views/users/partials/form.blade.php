@@ -1,7 +1,7 @@
 @if($user == null)
-    <form action="/admin/users" method="post">
+    <form action="/users" method="post">
 @else
-    <form action="/admin/users/{{$user->id}}" method="post">
+    <form action="/users/{{$user->id}}" method="post">
     @method('PUT')
 @endif
     @csrf

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Category;
 
+
 class AdminCategoryController extends Controller
 {
   public function index()
@@ -13,9 +14,17 @@ class AdminCategoryController extends Controller
         return view('categories.index')->with(['categories' => $categories]);
   }
 
-  public function show($name)
+  public function create()
   {
-    $slug = Category::where('name',$name)->get();
+      $category = null;
+      return view("categories.create",["category"=>$category]);
+
+  }
+
+
+  public function show($id)
+  {
+    $slug = Category::where('id',$id)->first();
     return view('categories.show')->with(['category' => $slug]);
   }
 
@@ -29,7 +38,7 @@ class AdminCategoryController extends Controller
   public function store(Request $request)
   {
       $categoria = new Category;
-      $categoria->nom=$request->nom;
+      $categoria->name=$request->name;
       $categoria->description=$request->description;
 
       if($categoria->save()){
@@ -37,6 +46,30 @@ class AdminCategoryController extends Controller
       }else{
           return view("categories.create");
       }
+  }
+
+  public function update(Request $request, $id)
+  {
+
+
+    $category = Category::find($id);
+    $category->name=$request->name;
+    $category->description=$request->description;
+
+    if($category->save()){
+        return redirect("/categories");
+    }else{
+
+        return view("categories.edit");
+    }
+  }
+
+  public function destroy($id)
+  {
+      $category = Category::find($id);
+      Category::destroy($id);
+
+      return redirect('/categories');
   }
 
 }

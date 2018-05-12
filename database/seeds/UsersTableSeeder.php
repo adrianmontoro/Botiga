@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
       User::create([
+      'dni'  => '12345678k',
       'name'  => 'Administrador',
       'surname'  => 'Administrador',
       'country'  => 'Spain',
@@ -29,6 +30,7 @@ class UsersTableSeeder extends Seeder
 
 
     User::create([
+      'dni' => '23456789l',
       'name'  => 'user',
       'surname'  => 'user',
       'country'  => 'Spain',
@@ -41,6 +43,22 @@ class UsersTableSeeder extends Seeder
       'verified'  => '1',
       'role_id'  => '2'
     ]);
+
+    User::create([
+      'dni' => '34567897h',
+      'name'  => 'adria',
+      'surname'  => 'montoro',
+      'country'  => 'Spain',
+      'city'  => 'Amposta',
+      'tel'  => '976534687',
+      'email'  => 'adrianmontoro@iesmontsia.org',
+      'password'  => bcrypt('123456'),
+      'email_token' => base64_encode('adrianmontoro@iesmontsia.org'),
+      'active'  => '1',
+      'verified'  => '1',
+      'role_id'  => '2'
+    ]);
+
   //  $user->assignRole('user');
   }
 }

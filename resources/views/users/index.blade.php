@@ -1,22 +1,25 @@
 @extends('adminlte::page')
 
-<head><title>@lang('Users')</title></head>
+<head><title>Usuaris</title></head>
 
 @section('content_header')
-<h1>@lang('Users')</h1>
+<h1>Usuaris</h1>
 @stop
 
 @section('content')
     <div class="row">
         <div class="col-12 col-sm-10 mx-auto">
             <div class="table-responsive">
+
+              <a href="{{route('users.create') }}" class="btn btn-success">Afegir Usuari</a>
+
                 <table class="box-shadow1 table table-striped table-hover bg-white">
                     <thead class="thead-dark">
                         <tr>
                             <th>ID</th>
                             <th style="width:20%;">Nom</th>
                             <th style="width:20%;">@lang('Email')</th>
-                            <th class="text-center">@lang('Actions')</th>
+                            <th class="text-center">Accions</th>
                         </tr>
                     </thead>
                     <tbody>

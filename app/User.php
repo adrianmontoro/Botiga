@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'email_token',
     ];
+
+
+    /*public static function verificat($id){
+      if($id->verified, true){
+        Si
+        else(){
+          No
+        }
+      }
+    };*/
 }

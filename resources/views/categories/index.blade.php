@@ -11,6 +11,8 @@
     <div class="row" style="margin-top:8%"> </div>
       <div class="row">
 
+        <a href="{{route('categories.create') }}" class="btn btn-success">Afegir categoria</a>
+
         <table class="box-shadow1 table table-striped table-hover bg-white">
             <thead class="thead-dark">
                 <tr>
@@ -46,6 +48,7 @@
                       </div>
               </div>
               @endforeach
+
       </div>
     </div>
   </div>

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Subhasta;
+use App\Product;
 
 class FeedController extends Controller
 {
 
   public function index()
   {
-  $posts = Subhasta::limit(20)->get();
+  $posts = Product::limit(20)->get();
 
   $data = [
     'version' => 'https://jsonfeed.org/version/1',
@@ -33,7 +33,7 @@ foreach ($posts as $key => $post) {
   $data['items'][$key] = [
       'id' => $post->id,
       //'title' => $post->title,
-      'url' => 'https://127.0.0.1:8080/subhasta/'.$post->id,
+      'url' => 'https://127.0.0.1:8080/product/'.$post->id,
       // 'image' => $post->featured_image,
       'content_text' => "$post->preu_venta ($estat)",
       'date_published' => $post->created_at->tz('UTC')->toRfc3339String(),

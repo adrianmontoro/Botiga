@@ -22,4 +22,45 @@ class PdfController extends Controller
       return $pdf -> download('pdf.invoice.pdf');
     }
 
+    public function users()
+    {
+        $data = DB::table('users')->orderBy('surname','ASC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_cognom_A-Z.pdf');
+    }
+
+    public function users2()
+    {
+        $data = DB::table('users')->orderBy('surname','DESC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_cognom_Z-A.pdf');
+    }
+
+    public function users3()
+    {
+        $data = DB::table('users')->orderBy('dni','ASC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_dni_A-Z.pdf');
+    }
+
+    public function users4()
+    {
+        $data = DB::table('users')->orderBy('dni','DESC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_dni_Z-A.pdf');
+    }
+
+    public function users5()
+    {
+        $data = DB::table('users')->orderBy('city','ASC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_city_A-Z.pdf');
+    }
+
+    public function users6()
+    {
+        $data = DB::table('users')->orderBy('city','DESC')->get();
+        $pdf = PDF::loadView('pdf.invoice', compact('data'));
+        return $pdf -> download('Usuari_city_Z-A.pdf');
+    }
 }

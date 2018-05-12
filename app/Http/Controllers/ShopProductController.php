@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
 
-class AdminProductController extends Controller
+class ShopProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class AdminProductController extends Controller
      */
     public function index()
     {
-      $product = Product::get();
-      return view('products.index')->with(['products' => $products]);
+      $products = Product::orderBy('id','ASC')->paginate(5);
+      return view("shop.products.index",["products"=>$products]);
     }
 
     /**

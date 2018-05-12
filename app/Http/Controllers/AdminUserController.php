@@ -45,19 +45,22 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         $ajaxStore = $request->only('ajax');
-        $data = $request->only(['nickname','name','surname','password','password_confirmation','email']);
+        $data = $request->only(['name','surname','country','city','tel','email','password','password_confirmation']);
         $roles = $request->only(['roles']);
         $psswd = $request->only(['password','password_confirmation']);
         if($psswd['password'] === $psswd['password_confirmation']){
             $this->validator($data)->validate();
             User::create([
-                'nickname' => $data['nickname'],
-                'name' => $data['name'],
-                'surname' => $data['surname'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-                'email_token' => base64_encode($data['email'])
+              'name' => $data['name'],
+              'surname' => $data['surname'],
+              'country' => $data['country'],
+              'city' => $data['city'],
+              'tel' => $data['tel'],
+              'email' => $data['email'],
+              'password' => Hash::make($data['password']),
+              'email_token' => base64_encode($data['email'])
             ]);
+
 
             $user = DB::table('users')->where('name',$data['name'])->get();
             $user = $user[0];
@@ -86,10 +89,11 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+     public function show($id)
+     {
+       $user = User::where('id',$id)->first();
+       return view('users.show')->with(['user' => $user]);
+     }
 
     /**
      * Show the form for editing the specified resource.

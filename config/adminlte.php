@@ -144,22 +144,55 @@ return [
             'url'  => 'admin/pdf',
             'icon' => 'file',
             'submenu' => [
+              //Cognom
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
-                ],
-                  [
-                    'text'    => 'Level Two',
-                    'url'     => '#',
-                  ],
+                  'text'    => 'Ordenat per cognom',
+                  'url'     => '#',
+                  'submenu' => [
                       [
-                      'text'    => 'Level Two',
-                      'url'     => '#',
-                        [
-                          'text'    => 'Level Two',
-                          'url'     => '#',
-                        ],
+                          'text' => 'A-Z',
+                          'url'  => 'pdf/asc',
                       ],
+                      [
+                          'text' => 'Z-A',
+                          'url'  => 'pdf/desc',
+                      ],
+                  ],
+                ],
+
+                //DNI
+            [
+              'text'    => 'Ordenat per DNI',
+              'url'     => '#',
+              'submenu' => [
+                  [
+                      'text' => 'A-Z',
+                      'url'  => 'pdf/dni/asc',
+                  ],
+                  [
+                      'text' => 'Z-A',
+                      'url'  => 'pdf/dni/desc',
+                  ],
+              ],
+            ],
+
+            //Població
+        [
+          'text'    => 'Ordenat per població',
+          'url'     => '#',
+          'submenu' => [
+              [
+                  'text' => 'A-Z',
+                  'url'  => 'pdf/poblacio/asc',
+              ],
+              [
+                  'text' => 'Z-A',
+                  'url'  => 'pdf/poblacio/desc',
+              ],
+          ],
+        ],
+
+
               ],
         ],
         /*[
