@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Product;
+use Cart;
 
 class CartController extends Controller
 {
@@ -11,9 +13,11 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        return view('cart.index');
+      $product = Product::where('id',$id)->first();
+      Cart::add($product->id,$product->name,1,$product->price);
+        return view('cart.index')->with(['product' => $product]);;
     }
 
     /**
@@ -21,7 +25,7 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add()
+    public function add($id)
     {
       $request = Product::find($id);
       Cart::add($request->id,$request_d->name,1,$request->price);
@@ -70,7 +74,10 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+      $request = Product::find($id);
+
+      Cart::update($rowId, 2);
     }
 
     /**
@@ -81,6 +88,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+      Cart::remove($rowId);
     }
 }

@@ -26,7 +26,11 @@ Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc');
 Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc');
 Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc');
 Route::resource('/feed', 'FeedController');
-Route::resource('/cart','CartController');
+//Route::resource('/cart','CartController');
+
+Route::get('/cart/{id}','CartController@index')->name('cart_index');
+//Route::get('/cart/{id}','CartController@update')->name('cart_edit');
+//Route::get('/cart/{id}','CartController@destroy')->name('cart_delete');
 
 //Admin
 Route::resource('users','AdminUserController');
