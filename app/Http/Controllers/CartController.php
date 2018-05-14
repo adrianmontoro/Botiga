@@ -22,7 +22,7 @@ class CartController extends Controller
 
       $content = Cart::content();
       //dd($content);
-        return view('cart.index')->with(['content' => $content]);
+      return view('cart.index')->with(['content' => $content]);
     }
 
     /**
@@ -38,40 +38,6 @@ class CartController extends Controller
 
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -79,7 +45,7 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $rowId)
     {
       $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
       $request = Product::find($id);
@@ -90,18 +56,21 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $rowid
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($rowId)
     {
-      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
       Cart::remove($rowId);
+      return redirect()->route('cart_index');
     }
 
-    public function store($id)
+
+    public function store(Request $request, $rowid)
     {
-      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-      
+        $qty = $request->only(['qty']);
+        Cart::update($rowid, $qty['qty']);
+
+        return redirect()->route('cart_index');
     }
 }

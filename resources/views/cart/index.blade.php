@@ -17,7 +17,7 @@
               <th>Nova quantitat</th>
               <th>Act. quantitat </th>
              	<th>Preu</th>
-             	<th>Subtotal</th>
+              <th style="text-align:center;"> Accions </th>
          	</tr>
      	</thead>
 
@@ -30,12 +30,13 @@
                   <p><strong>{{$row->name}}</strong></p>
               </td>
               <td><label type="text" style="text-align:center;">{{ $row->qty }}</td>
-            	<form method="post" action="{{route('cart_store')}}">
+            	<form method="post" action="{{route('cart_store',['rowid' => $row->rowId])}}">
                 @csrf
-                <td><input type="text" style="width:50px;text-align:center;" value="{{ $row->qty }}"></td>
-                <td><button class="btn btn-success" style="width=15px;height:45px;">Act.</button></td>
+                <td><input name="qty" type="text" style="width:50px;text-align:center;" value="{{ $row->qty }}"></td>
+                <td><button type="submit "class="btn btn-success" style="width=15px;height:45px;">Act.</button></td>
               </form>
               <td><label type="text">{{ $row->price }}</td>
+              <td><a href="{{route('cart_delete',['rowid' => $row->rowId])}}" class="btn btn-danger">Eliminar</a> </td>
 
               <td></td>
               <td style="font-color:black;"></td>
@@ -63,8 +64,8 @@
      		</tr>
      	</tfoot>
   </table>
-  <a href="" class="btn btn-success">Editar</a>
-  <a href="" class="btn btn-success">Eliminar</a>
+  <a href="" class="btn btn-success" style="align:right;"> Finalitzar comanda </a>
+
 
   </div>
     </div>
