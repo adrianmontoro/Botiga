@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
-use Cart;
 
-class CartController extends Controller
+class AuthViewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +13,21 @@ class CartController extends Controller
      */
     public function index()
     {
-      $product = Product::where('id',$id)->first();
-      //Cart::add($product->id,$product->name,1,$product->price);
-        return view('cart.index')->with(['product' => $product]);;
+        return view('auth.login');
     }
 
+    public function index2()
+    {
+        return view('auth.register');
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function add($id)
+    public function create()
     {
-      $request = Product::find($id);
-      Cart::add($request->id,$request_d->name,1,$request->price);
-      return redirect()-> route('cart');
+        //
     }
 
     /**
@@ -74,10 +72,7 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-      $request = Product::find($id);
-
-      Cart::update($rowId, 2);
+        //
     }
 
     /**
@@ -88,7 +83,6 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
-      Cart::remove($rowId);
+        //
     }
 }

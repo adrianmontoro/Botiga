@@ -6,21 +6,27 @@
 -->
 <html>
 	<head>
-		<title>Projection by TEMPLATED</title>
+		<title>BotiShop</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 	</head>
 	<body>
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="{{route('product.index')}}" class="logo"><strong>BotiShop</strong></a>
+					<a href="{{route('shop')}}" class="logo"><h4><strong>BotiShop</strong></h4></a>
 					<nav id="nav">
-						<a href="{{route('product.index')}}">Home</a>
-						<a href="generic.html">Generic</a>
-						<a href="elements.html">Elements</a>
+						<a href="{{route('shop')}}">Home</a>
+						<a href="{{route('login')}}">Register</a>
+						<a href="{{route('register')}}">Login</a>
+						<a href="{{route('feed')}}" class="fas fa-rss"> </a>
+						<!-- Authentication Links -->
+						@guest
+							<a class="nav-link fas fa-shopping-cart" href="{{ route('cart_index') }}"></a>
+						@endguest
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
