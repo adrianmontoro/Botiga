@@ -34,8 +34,8 @@
                                         <form method="post" action="{{route('users.destroy', ['id' => $user->id])}}">
                                             <a class="btn btn-primary" href="{{route('users.show', ['id' => $user->id])}}"><i class="fa fa-eye"></i></a>
                                             <a class="btn btn-warning text-light" href="{{route('users.edit', ['id' => $user->id])}}"><i class="fa fa-pencil"></i></a>
-                                            @method("delete")
                                             @csrf
+                                            @method("delete")
                                             <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                                         </form>
                                     </td>

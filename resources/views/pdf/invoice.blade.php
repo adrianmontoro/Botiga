@@ -10,7 +10,7 @@
 
 <body>
 
-<!-- Mostrar els usuaris ordenats alfabèticament per cognoms de forma ascendent o descendent. -->
+<!-- Mostrar els usuaris ordenats alfabèticament. -->
 
 <h1 class="text-center"> - Usuaris - </h1> <br/>
 
