@@ -64,7 +64,21 @@
      		</tr>
      	</tfoot>
   </table>
-  <a href="{{route('paywithpaypal')}}" class="btn btn-success" style="align:right;"> Finalitzar comanda </a>
+
+  <div class="panel-body centered" >
+      <form class="form-horizontal" method="POST" id="payment-form" role="form" action="{!! URL::route('paypal') !!}" >
+          @csrf
+          <input type="hidden" id="amount" type="text" class="form-control" name="amount" value="{{ Cart::total() }}" autofocus>
+
+          <div class="form-group">
+              <div class="col centered">
+                  <button type="submit" class="btn btn-primary" style="align:center;" >
+                      Paywith Paypal
+                  </button>
+              </div>
+          </div>
+      </form>
+  </div>
 
 
   </div>
