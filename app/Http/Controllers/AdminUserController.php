@@ -45,12 +45,13 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         $ajaxStore = $request->only('ajax');
-        $data = $request->only(['name','surname','country','city','tel','email','password','password_confirmation']);
+        $data = $request->only(['dni','name','surname','country','city','tel','email','password','password_confirmation']);
         $roles = $request->only(['roles']);
         $psswd = $request->only(['password','password_confirmation']);
         if($psswd['password'] === $psswd['password_confirmation']){
             $this->validator($data)->validate();
             User::create([
+              'dni' => $data['dni'],
               'name' => $data['name'],
               'surname' => $data['surname'],
               'country' => $data['country'],
@@ -58,7 +59,9 @@ class AdminUserController extends Controller
               'tel' => $data['tel'],
               'email' => $data['email'],
               'password' => Hash::make($data['password']),
-              'email_token' => base64_encode($data['email'])
+              'email_token' => base64_encode($data['email']),
+              'role_id' => '2',
+              'verified' => '1'
             ]);
 
 
@@ -71,12 +74,9 @@ class AdminUserController extends Controller
                 ]);
             }
 
-            if($ajaxStore['ajax'] == 1){
-                return response()->json($roles);
-            }else{
                 session()->flash('success','Usuari creat correctament!');
                 return redirect()->route('users.index');
-            }
+
         }
 
         session()->flash('danger','Verifica les dades introduides...');
@@ -118,12 +118,13 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = $request->only(['name','surname','country','city','tel','email','password','password_confirmation']);
+        $data = $request->only(['dni','name','surname','country','city','tel','email','password','password_confirmation']);
         //$roles = $request->only(['roles']);
         $psswd = $request->only(['password','password_confirmation']);
         if($psswd['password'] === $psswd['password_confirmation']){
             $this->validator($data)->validate();
             User::where('id',$id)->update([
+                'dni' => $data['dni'],
                 'name' => $data['name'],
                 'surname' => $data['surname'],
                 'country' => $data['country'],
@@ -159,7 +160,10 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $user = User::find($id);
+      User::destroy($id);
+
+      return redirect('/users');
     }
 
     /**
@@ -171,10 +175,16 @@ class AdminUserController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'dni' =>  'required|string|max:255|unique:users',
             'name' => 'required|string|max:255',
             'surname' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+    }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }

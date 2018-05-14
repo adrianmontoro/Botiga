@@ -72,4 +72,8 @@ class AdminCategoryController extends Controller
       return redirect('/categories');
   }
 
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
 }

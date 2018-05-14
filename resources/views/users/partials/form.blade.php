@@ -11,6 +11,10 @@
             @endif>
     </div>
     <div class="form-group">
+      <label for="dni">DNI:</label>
+      <input value="{{$user->dni or ''}}" name="dni" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
       <label for="description">Nom:</label>
       <input value="{{$user->name or ''}}" name="name" class="form-control" type="text" required>
     </div>

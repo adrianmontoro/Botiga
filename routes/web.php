@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,14 +19,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin','AdminlteController@index')->name('admin');
-Route::get('/pdf/asc','PdfController@users')->name('pdf_asc');
-Route::get('/pdf/desc','PdfController@users2')->name('pdf_desc');
-Route::get('/pdf/dni/asc','PdfController@users3')->name('pdf_dni_asc');
-Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc');
-Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc');
-Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc');
+//Routes Admin
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/admin','AdminlteController@index')->name('admin')->middleware('role:administrador');
+Route::get('/pdf/asc','PdfController@users')->name('pdf_asc')->middleware('role:administrador');
+Route::get('/pdf/desc','PdfController@users2')->name('pdf_desc')->middleware('role:administrador');
+Route::get('/pdf/dni/asc','PdfController@users3')->name('pdf_dni_asc')->middleware('role:administrador');
+Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc')->middleware('role:administrador');
+Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc')->middleware('role:administrador');
+Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc')->middleware('role:administrador');
+
+//Admin resource
+Route::resource('users','AdminUserController')->middleware('role:administrador');
+Route::resource('categories','AdminCategoryController')->middleware('role:administrador');
+Route::resource('products','AdminProductsController')->middleware('role:administrador');
+
+/*User*/
 //Route::resource('/feed', 'FeedController');
 Route::get('/feed','FeedController@index')->name('feed');
 //Route::resource('/cart','CartController');
@@ -36,13 +45,8 @@ Route::get('/cart','CartController@index')->name('cart_index');
 //Route::get('/cart/delete/{id}','CartController@destroy')->name('cart_delete');
 
 //Views
-Route::get('/login','AuthViewsController@index')->name('register');
-Route::get('/register','AuthViewsController@index2')->name('login');
-
-//Admin
-Route::resource('users','AdminUserController');
-Route::resource('categories','AdminCategoryController');
-Route::resource('products','AdminProductsController');
+Route::get('/login','AuthViewsController@index')->name('login')->middleware('guest');
+Route::get('/register','AuthViewsController@index2')->name('register')->middleware('guest');
 
 //Shop
 //Route::resource('product','ShopProductController');

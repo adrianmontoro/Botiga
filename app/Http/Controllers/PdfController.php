@@ -63,4 +63,9 @@ class PdfController extends Controller
         $pdf = PDF::loadView('pdf.invoice', compact('data'));
         return $pdf -> download('Usuari_city_Z-A.pdf');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

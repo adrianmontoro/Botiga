@@ -145,4 +145,9 @@ class AdminProductsController extends Controller
 
         return redirect('/products');
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }

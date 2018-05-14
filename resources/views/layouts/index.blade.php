@@ -20,13 +20,15 @@
 					<a href="{{route('shop')}}" class="logo"><h4><strong>BotiShop</strong></h4></a>
 					<nav id="nav">
 						<a href="{{route('shop')}}">Home</a>
-						<a href="{{route('login')}}">Register</a>
-						<a href="{{route('register')}}">Login</a>
+						@guest
+						<a href="{{route('register')}}">Register</a>
+						<a href="{{route('login')}}">Login</a>
+						@endguest
 						<a href="{{route('feed')}}" class="fas fa-rss"> </a>
 						<!-- Authentication Links -->
-						@guest
+						@auth
 							<a class="nav-link fas fa-shopping-cart" href="{{ route('cart_index') }}"></a>
-						@endguest
+						@endauth
 					</nav>
 					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 				</div>
