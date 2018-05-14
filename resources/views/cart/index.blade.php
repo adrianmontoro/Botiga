@@ -64,7 +64,7 @@
      		</tr>
      	</tfoot>
   </table>
-  <a href="" class="btn btn-success" style="align:right;"> Finalitzar comanda </a>
+  <a href="{{route('paywithpaypal')}}" class="btn btn-success" style="align:right;"> Finalitzar comanda </a>
 
 
   </div>

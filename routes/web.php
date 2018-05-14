@@ -54,3 +54,12 @@ Route::get('/register','AuthViewsController@index2')->name('register')->middlewa
 //Shop
 //Route::resource('product','ShopProductController');
 Route::get('/','ShopProductController@index')->name('shop');
+
+/*paypal*/
+
+// route for view/blade file
+Route::get('paywithpaypal', array('as' => 'paywithpaypal','uses' => 'PaypalController@payWithPaypal',));
+// route for post request
+Route::post('paypal', array('as' => 'paypal','uses' => 'PaypalController@postPaymentWithpaypal',));
+// route for check status responce
+Route::get('paypal', array('as' => 'status','uses' => 'PaypalController@getPaymentStatus',));
