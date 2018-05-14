@@ -15,9 +15,11 @@ class CartController extends Controller
      */
     public function index()
     {
-      $product = Product::where('id',$id)->first();
-      //Cart::add($product->id,$product->name,1,$product->price);
-        return view('cart.index')->with(['product' => $product]);;
+      /*$product = Product::where('id',$id)->first();
+        Cart::add($product->id,$product->name,1,$product->price);
+        return view('cart.index')->with(['product','$product']);
+      */
+        return view('cart.index');
     }
 
     /**
@@ -28,8 +30,8 @@ class CartController extends Controller
     public function add($id)
     {
       $request = Product::find($id);
-      Cart::add($request->id,$request_d->name,1,$request->price);
-      return redirect()-> route('cart');
+      Cart::add($request->id,$request->name,1,$request->price);
+      return redirect()-> route('cart')->with(['product','$product']);
     }
 
     /**

@@ -25,11 +25,11 @@
 
           <tr>
               <td>
-                  <p><strong></strong></p>
+                  <p><strong>{{$product->name}}</strong></p>
               </td>
             	<td><input type="text" value="<?php echo $row->qty; ?>"></td>
-              <td></td>
-              <td style="font-color:black;"></td>
+              <td>{{$product->price}}</td>
+              <td style="font-color:black;">{{$product->total}}</td>
           </tr>
 
   	   	<?php endforeach;?>
@@ -54,8 +54,8 @@
      		</tr>
      	</tfoot>
   </table>
-  <a href="" class="btn btn-success">Editar</a>
-  <a href="" class="btn btn-success">Eliminar</a>
+  <a href="{{route('cart_edit') }}" class="btn btn-success">Editar</a>
+  <a href="{{route('cart_delete') }}" class="btn btn-success">Eliminar</a>
 
   </div>
     </div>
