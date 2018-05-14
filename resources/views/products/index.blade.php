@@ -3,12 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<br>
 <h1>Productes</h1>
 @stop
 
 @section('content')
   <div class="container">
-    <div class="row" style="margin-top:8%"> </div>
+    <div class="row" style="margin-top:5%"> </div>
       <div class="row">
 
         <table class="box-shadow1 table table-striped table-hover bg-white">

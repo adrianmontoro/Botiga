@@ -3,12 +3,13 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
+<br>
 <h1>Categories</h1>
 @stop
 
 @section('content')
   <div class="container">
-    <div class="row" style="margin-top:8%"> </div>
+    <div class="row" style="margin-top:5%"> </div>
       <div class="row">
 
         <a href="{{route('categories.create') }}" class="btn btn-success">Afegir categoria</a>

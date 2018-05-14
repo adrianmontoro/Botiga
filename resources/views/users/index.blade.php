@@ -3,11 +3,12 @@
 <head><title>Usuaris</title></head>
 
 @section('content_header')
+<br>
 <h1>Usuaris</h1>
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row" style="margin-top:5%">
         <div class="col-12 col-sm-10 mx-auto">
             <div class="table-responsive">
 
