@@ -43,6 +43,8 @@ Route::get('/feed','FeedController@index')->name('feed');
 
 //Route::get('/cart/{id}','CartController@index')->name('cart_index');
 Route::get('/cart','CartController@index')->name('cart_index');
+Route::get('/cart/add/{id}','CartController@add')->name('cart_add');
+Route::post('cart/store/{rowid}','CartController@store')->name('cart_store');
 //Route::get('/cart/edit/{id}','CartController@update')->name('cart_edit');
 //Route::get('/cart/delete/{id}','CartController@destroy')->name('cart_delete');
 

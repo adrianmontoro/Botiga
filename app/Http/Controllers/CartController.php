@@ -19,7 +19,10 @@ class CartController extends Controller
         Cart::add($product->id,$product->name,1,$product->price);
         return view('cart.index')->with(['product','$product']);
       */
-        return view('cart.index');
+
+      $content = Cart::content();
+      //dd($content);
+        return view('cart.index')->with(['content' => $content]);
     }
 
     /**
@@ -31,8 +34,10 @@ class CartController extends Controller
     {
       $request = Product::find($id);
       Cart::add($request->id,$request->name,1,$request->price);
-      return redirect()-> route('cart')->with(['product','$product']);
+      return redirect()-> route('shop',['product','$product']);
+
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -92,5 +97,11 @@ class CartController extends Controller
     {
       $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
       Cart::remove($rowId);
+    }
+
+    public function store($id)
+    {
+      $rowId = 'da39a3ee5e6b4b0d3255bfef95601890afd80709';
+      
     }
 }

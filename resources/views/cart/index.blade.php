@@ -13,7 +13,9 @@
      	<thead>
          	<tr>
              	<th>Producte</th>
-             	<th>Quantitat</th>
+             	<th>Quantitat Actual</th>
+              <th>Nova quantitat</th>
+              <th>Act. quantitat </th>
              	<th>Preu</th>
              	<th>Subtotal</th>
          	</tr>
@@ -21,13 +23,20 @@
 
      	<tbody>
 
-     		<?php foreach(Cart::content() as $row) :?>
+     		<?php foreach($content as $row) :?>
 
           <tr>
               <td>
-                  <p><strong></strong></p>
+                  <p><strong>{{$row->name}}</strong></p>
               </td>
-            	<td><input type="text" value="<?php echo $row->qty; ?>"></td>
+              <td><label type="text" style="text-align:center;">{{ $row->qty }}</td>
+            	<form method="post" action="{{route('cart_store')}}">
+                @csrf
+                <td><input type="text" style="width:50px;text-align:center;" value="{{ $row->qty }}"></td>
+                <td><button class="btn btn-success" style="width=15px;height:45px;">Act.</button></td>
+              </form>
+              <td><label type="text">{{ $row->price }}</td>
+
               <td></td>
               <td style="font-color:black;"></td>
           </tr>

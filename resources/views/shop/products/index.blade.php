@@ -23,7 +23,7 @@
       </div>
 
       <div class="card-footer">
-          <a class="btn btn-danger"href="{{route('cart_index', ['id' => $product->id])}}"> Comprar </a>
+          <a class="btn btn-danger"href="{{route('cart_add', ['id' => $product->id])}}"> Comprar </a>
       </div>
     </div>
 
