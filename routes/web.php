@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Auth\AuthenticationException;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,14 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin','AdminlteController@index')->name('admin');
-Route::get('/pdf/asc','PdfController@users')->name('pdf_asc');
-Route::get('/pdf/desc','PdfController@users2')->name('pdf_desc');
-Route::get('/pdf/dni/asc','PdfController@users3')->name('pdf_dni_asc');
-Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc');
-Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc');
-Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/admin','AdminlteController@index')->name('admin')->middleware('auth');
+Route::get('/pdf/asc','PdfController@users')->name('pdf_asc')->middleware('auth');
+Route::get('/pdf/desc','PdfController@users2')->name('pdf_desc')->middleware('auth');
+Route::get('/pdf/dni/asc','PdfController@users3')->name('pdf_dni_asc')->middleware('auth');
+Route::get('/pdf/dni/desc','PdfController@users4')->name('pdf_dni_desc')->middleware('auth');
+Route::get('/pdf/poblacio/asc','PdfController@users5')->name('pdf_poblacio_desc')->middleware('auth');
+Route::get('/pdf/poblacio/desc','PdfController@users6')->name('pdf_poblacio_desc')->middleware('auth');
 //Route::resource('/feed', 'FeedController');
 Route::get('/feed','FeedController@index')->name('feed');
 //Route::resource('/cart','CartController');
@@ -40,9 +41,9 @@ Route::get('/login','AuthViewsController@index')->name('register');
 Route::get('/register','AuthViewsController@index2')->name('login');
 
 //Admin
-Route::resource('users','AdminUserController');
-Route::resource('categories','AdminCategoryController');
-Route::resource('products','AdminProductsController');
+Route::resource('users','AdminUserController')->middleware('auth');
+Route::resource('categories','AdminCategoryController')->middleware('auth');
+Route::resource('products','AdminProductsController')->middleware('auth');
 
 //Shop
 //Route::resource('product','ShopProductController');

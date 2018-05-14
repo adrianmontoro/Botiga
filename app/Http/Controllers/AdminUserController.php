@@ -177,4 +177,9 @@ class AdminUserController extends Controller
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
