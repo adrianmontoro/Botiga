@@ -60,6 +60,7 @@ class AdminProductsController extends Controller
         $product->description=$request->description;
         $product->properties=$request->properties;
         $product->picture=$picture;
+        $product->price=$request->price;
 
         if($product->save()){
           $product->afegircate($product->id,$request->categoria);
@@ -111,6 +112,8 @@ class AdminProductsController extends Controller
       $product->name=$request->name;
       $product->description=$request->description;
       $product->properties=$request->properties;
+      $product->price=$request->price;
+      
       //IMATGE
       if($request->file('imatge')!=null){
         $image = $request->file('imatge');

@@ -12,11 +12,15 @@
     </div>
     <div class="form-group">
         <label for="description">Descripció:</label>
-        <input class="form-control" type="text" name="description" value="{{$product->description or ''}}" id="name">
+        <input class="form-control" type="text" name="description" value="{{$product->description or ''}}" id="description">
     </div>
     <div class="form-group">
         <label for="properties">Propietats:</label>
-        <input class="form-control" type="text" name="properties" value="{{$product->properties or ''}}" id="name">
+        <input class="form-control" type="text" name="properties" value="{{$product->properties or ''}}" id="properties">
+    </div>
+    <div class="form-group">
+        <label for="price">Preu:</label>
+        <input class="form-control" type="text" name="price" value="{{$product->price or ''}}" id="price">
     </div>
 
     @foreach ($categories as $cat)

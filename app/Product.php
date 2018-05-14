@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'properties', 'picture',
+        'name', 'description', 'properties', 'price', 'picture', 
     ];
 
     public function afegircate($id,$cat){

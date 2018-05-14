@@ -10,7 +10,7 @@
   <div class="row" >
     @foreach ($products as $product)
 
-    <div class="card pr-3 mx-auto">
+    <div class="card pr-3 mx-auto mb-4">
 
       <div class="card-header">
         <h4 class="card-title">{{ $product->name }}</h4>
