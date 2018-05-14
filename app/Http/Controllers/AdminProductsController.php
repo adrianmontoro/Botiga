@@ -113,7 +113,7 @@ class AdminProductsController extends Controller
       $product->description=$request->description;
       $product->properties=$request->properties;
       $product->price=$request->price;
-      
+
       //IMATGE
       if($request->file('imatge')!=null){
         $image = $request->file('imatge');

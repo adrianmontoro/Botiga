@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Auth\AuthenticationException;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +17,7 @@ Route::get('/', function () {
     return view('shop.products.index');
 });
 */
+
 
 Auth::routes();
 

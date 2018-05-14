@@ -14,7 +14,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Usuaris</span>
-              <span class="info-box-number">---</span>
+              <span class="info-box-number">{{\App\User::countusers()}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -24,7 +24,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Beneficis</span>
-              <span class="info-box-number">---</span>
+              <span class="info-box-number">{{\App\Charge::countcharges()}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -34,7 +34,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Productes</span>
-              <span class="info-box-number">---</span>
+              <span class="info-box-number">{{\App\Product::countproducts()}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -44,7 +44,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Categories</span>
-              <span class="info-box-number">---</span>
+              <span class="info-box-number">{{\App\Category::countcategories()}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>

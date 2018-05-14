@@ -17,7 +17,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Consola PlayStation4',
         'properties'  => '500GB Disc',
         'price' => '399',
-        'picture'  => asset('images/play4.jpg'),
+        'picture'  => 'images/play4.jpg',
         //'category_id' => '3',
       ]);
 
@@ -26,7 +26,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Càmara professional Cannon',
         'properties'  => '142 megapíxels',
         'price' => '699',
-        'picture'  => asset('images/cannon.jpg'),
+        'picture'  => 'images/cannon.jpg',
         //'category_id' => '2',
       ]);
 
@@ -35,7 +35,7 @@ class ProductsTableSeeder extends Seeder
         'description'  => 'Portatil gaming Lenovo',
         'properties'  => 'Gràfica: GTX1080OC',
         'price' => '599',
-        'picture'  => asset('images/lenovo.jpg'),
+        'picture'  => 'images/lenovo.jpg',
         //'category_id' => '1',
       ]);
     }

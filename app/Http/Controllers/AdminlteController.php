@@ -34,6 +34,19 @@ class AdminlteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function countusers(Request $request)
+    {
+        $users = DB::table('users')->count();
+        return $users;
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         //
@@ -83,6 +96,8 @@ class AdminlteController extends Controller
     {
         //
     }
+
+
 
     public function __construct()
     {

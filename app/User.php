@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -26,6 +27,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'email_token',
     ];
+
+    public static function countusers()
+    {
+        $users = DB::table('users')->count();
+        return $users;
+    }
 
 
     /*public static function verificat($id){

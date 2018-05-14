@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = [
-        'name', 'description', 'properties', 'price', 'picture', 
+        'name', 'description', 'properties', 'price', 'picture',
     ];
 
     public function afegircate($id,$cat){
@@ -23,5 +23,11 @@ class Product extends Model
 
     public function deletartcate($id){
       DB::table('products-category')->where('product_id','=',$id)->delete();
+    }
+
+    public static function countproducts()
+    {
+        $product = DB::table('products')->count();
+        return $product;
     }
 }
