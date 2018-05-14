@@ -121,7 +121,7 @@ class AdminProductsController extends Controller
         $destinationPath = public_path('images');
         $image->move($destinationPath, $path);
         $r=(string)$request->root().'/images/'.''.$path;
-        $product->imatge=$picture;
+        $product->picture=$r;
       }
       ///IMATGE
 
